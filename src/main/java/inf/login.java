@@ -99,7 +99,7 @@ public class login extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(Pword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addComponent(Loginb, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Loginb)
                 .addGap(21, 21, 21))
         );
 
@@ -110,13 +110,13 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginbActionPerformed
-       String uname; 
+       String userName; 
        String pword;
        
-       uname = Uname.getText();
+       userName = Uname.getText();
        pword = Pword.getText();
        
-       if(uname.equals("Tharushi") && pword.equals("123")){
+       if(userName.equals("Tharushi") && pword.equals("123")){
            
            mainframe m = new mainframe();
            m.setVisible(true);
