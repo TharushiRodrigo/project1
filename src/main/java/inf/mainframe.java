@@ -27,8 +27,8 @@ public class mainframe extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
+        leftPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         search = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
@@ -44,26 +44,25 @@ public class mainframe extends javax.swing.JFrame {
         clear = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         exit = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        scrollPaneTable = new javax.swing.JScrollPane();
+        sudentTable = new javax.swing.JTable();
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 153, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        mainPanel.setBackground(new java.awt.Color(204, 153, 0));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 51, 0));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        leftPanel.setBackground(new java.awt.Color(204, 51, 0));
+        leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", null, null, new java.awt.Font("Arial", 1, 12), new java.awt.Color(51, 0, 51))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(51, 0, 51))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 170, -1));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 40));
+        leftPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 40));
 
         jPanel5.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -122,7 +121,7 @@ public class mainframe extends javax.swing.JFrame {
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 260, 240));
+        leftPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 260, 240));
 
         jPanel4.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -181,11 +180,11 @@ public class mainframe extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 260, 210));
+        leftPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 260, 210));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 610));
+        mainPanel.add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 610));
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        sudentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -196,17 +195,14 @@ public class mainframe extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(table);
+        scrollPaneTable.setViewportView(sudentTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 450, 590));
-
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 20, 10));
+        mainPanel.add(scrollPaneTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 450, 590));
 
         jToggleButton1.setText("jToggleButton1");
-        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
+        mainPanel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 590));
+        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -267,19 +263,18 @@ public class mainframe extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> grade;
     private javax.swing.JButton insert;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JPanel leftPanel;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField name;
+    private javax.swing.JScrollPane scrollPaneTable;
     private javax.swing.JTextField search;
-    private javax.swing.JTable table;
+    private javax.swing.JTable sudentTable;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }
