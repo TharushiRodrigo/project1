@@ -4,17 +4,26 @@
  */
 package inf;
 
+import codes.DbConnect;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tharu
  */
 public class mainframe extends javax.swing.JFrame {
 
-    /**
-     * Creates new form mainframe
-     */
+     Connection conn = null;
+     PreparedStatement pst = null;
+    
     public mainframe() {
         initComponents();
+         conn = DbConnect.connect();
+       
+        
     }
 
     /**
@@ -212,7 +221,25 @@ public class mainframe extends javax.swing.JFrame {
     }//GEN-LAST:event_nameActionPerformed
 
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
-        // TODO add your handling code here:
+      
+       String Name;
+       int Age;
+       int Grade;
+       
+       Name = name.getText();
+       Age = Integer.parseInt(age.getText());
+       Grade = Integer.parseInt(grade.getSelectedItem().toString());
+       
+        try {
+            String sql = "INSERT INTO student(Name,Age,Grade)VALUES ('"+Name+"','"+Age+"','"+Grade+"')";
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Inserted");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+        
     }//GEN-LAST:event_insertActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
